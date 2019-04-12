@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-hover">
+
+    <a href="/insert.to">添加</a>
+    <tr>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+
+    <tr th:each="stu:${list}">
+        <td th:text="${stu.id}"></td>
+        <td th:text="${stu.name}"></td>
+        <td th:text="${stu.sex}"></td>
+        <td>
+            <a th:href="@{delete(id=${stu.id})}">删除</a>
+            <a th:href="@{findById(id=${stu.id})}">修改</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td th:switch="${pageNum}">
+            <p th:case="1"><a th:href="@{/(pageNum=1)}">上一页</a></p>
+            <p th:case="*"><a th:href="@{/(pageNum=${pageNum}-1)}">上一页</a></p>
+        </td>
+
+        <td th:switch="${pageNum}">
+            <p th:case="${pages}"><a th:href="@{/(pageNum=${pages})}">下一页</a></p>
+            <p th:case="*"><a th:href="@{/(pageNum=${pageNum}+1)}">下一页</a></p>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

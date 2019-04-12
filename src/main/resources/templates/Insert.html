@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<form action="/insert" method="post">
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <td>名字</td>
+        <td><input type="text" name="name"/></td>
+    </tr>
+    <tr>
+        <td>性别</td>
+        <td>
+            <input type="text" name="sex"/>
+        </td>
+    </tr>
+</table>
+<button type="insert">提交</button>
+</form>
+</body>
+</html>
